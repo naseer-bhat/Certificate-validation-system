@@ -73,7 +73,8 @@ const Main = () => {
     <div className={styles.main_container}>
         <Header />
          {/* dashboard content here */}
-         <Sidebar />
+         {/* <SidebarMainContent/> */}
+         <Sidebar/>
          <MainContent/>
          <Footer/>
   

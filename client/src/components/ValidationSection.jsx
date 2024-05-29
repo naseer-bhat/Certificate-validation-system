@@ -139,11 +139,35 @@ const handleFileChange = (e)=>{
 
 }
 
-const handleUpload = () => {
-      if (selectedFile) {
-        // Mock file upload logic
-        console.log('File uploaded:', selectedFile.name);
+
+
+const handleUpload = async () => {
+  if (selectedFile) {
+    const formData = new FormData();
+    formData.append('pdf', selectedFile);
+
+    try {
+      const response = await fetch(`${baseURL}/api/upload`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+
+      const result = await response.json();
+      console.log(result);
+      setValidationResult(result);
+    } catch (error) {
+      console.error('Error:', error);
+      setValidationResult({ valid: false, message: 'Certificate is not valid' });
+    }
+  }
+
+
+
+     
     }
   
 
