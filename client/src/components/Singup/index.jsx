@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 
+
+
 const Signup = () => {
 	const [data, setData] = useState({
 		firstName: "",
@@ -87,8 +89,9 @@ const Signup = () => {
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
-							Sing Up
+							Sing Up or
 						</button>
+
 					</form>
 				</div>
 			</div>
